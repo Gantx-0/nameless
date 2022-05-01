@@ -20,7 +20,7 @@ export default class Command extends BaseCommand {
     const filteredMap = this.client.config.mods
       .map((mod) => this.client.getContact(mod))
       .filter((user) => user);
-    let text = "🚀DREADED-BOT OWNERS🚀\n\n";
+    let text = "𝕜𝕒𝕜𝕒𝕤𝕙𝕚 𝕓𝕠𝕥𝕫.𝕚𝕟𝕔 𝕠𝕨𝕟𝕖𝕣𝕤\n\n";
     filteredMap.forEach(
       (user, index) =>
         (text += `#${index + 1}\n🎉 *Username: ${
