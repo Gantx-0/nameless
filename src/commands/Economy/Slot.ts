@@ -21,7 +21,7 @@ export default class Command extends BaseCommand {
     M: ISimplifiedMessage,
     { joined }: IParsedArgs
   ): Promise<void> => {
-    if (M.from !== "120363022488307199@g.us")
+    if (M.from !== "120363025090167429@g.us")
       return void M.reply(
         `You can't bet here. Use ${this.client.config.prefix}support to get casino group link.`
       );
@@ -85,12 +85,12 @@ export default class Command extends BaseCommand {
           amount - wallet
         } gold in your wallet to bet with this amount>*`
       );
-    if (amount > 15000)
-      return void M.reply(`🟥 *You can't bet more than 15000 gold*.`);
+    if (amount > 15000000000)
+      return void M.reply(`🟥 *You can't bet more than 1500000 gold*.`);
     const head = `🎰 *SLOT MACHINE* 🎰`;
     const buttons = [
       {
-        buttonId: "wallet",
+        buttonId: `${this.client.config.prefix}wallet`,
         buttonText: { displayText: `${this.client.config.prefix}wallet` },
         type: 1,
       },
@@ -104,7 +104,7 @@ export default class Command extends BaseCommand {
       const text = `${head}\n\n${i}\n\n📉 You lost *${amount} gold*.`;
       const buttonMessage: any = {
         contentText: `${text}`,
-        footerText: "🎇 Beyond 🎇",
+        footerText: "©zero two 2022",
         buttons: buttons,
         headerType: 1,
       };
@@ -118,10 +118,10 @@ export default class Command extends BaseCommand {
         { jid: user },
         { $set: { slot: Date.now() } }
       );
-      const text = `${head}\n\n${o}\n\n📈 You won *${gold} gold*.`;
+      const text = `${head}\n\n${o}\n\n🎊✨ You won *${gold} gold*.`;
       const buttonMessage: any = {
         contentText: `${text}`,
-        footerText: "🎇 Beyond 🎇",
+        footerText: "©levi 2022",
         buttons: buttons,
         headerType: 1,
       };
@@ -137,7 +137,7 @@ export default class Command extends BaseCommand {
       const text = `${head}\n\n${p}\n\n🎊 *Jackpot!* You won *${gold} gold*.`;
       const buttonMessage: any = {
         contentText: `${text}`,
-        footerText: "🎇 Beyond 🎇",
+        footerText: "©levi 2022",
         buttons: buttons,
         headerType: 1,
       };

@@ -12,7 +12,7 @@ export default class Command extends BaseCommand {
       aliases: ["deposit"],
       category: "economy",
       usage: `${client.config.prefix}deposit <amount>`,
-      baseXp: 30,
+      baseXp: 20,
     });
   }
 
@@ -24,7 +24,11 @@ export default class Command extends BaseCommand {
     const user = M.sender.jid;
     if (!joined)
       return void M.reply(`Specify the amount of gold to deposit, Baka!`);
-    const amount: any = joined.trim();
+    const amount: any = joined
+      .trim()
+      .split(" ")[0]
+      .replace(/\-/g, "trewte")
+      .replace(/\./g, "retre");
     if (isNaN(amount))
       return void M.reply(
         `*https://en.wikipedia.org/wiki/Number*\n\nI think this might help you.`
@@ -59,5 +63,3 @@ export default class Command extends BaseCommand {
     await M.reply(buttonMessage, MessageType.buttonsMessage);
   };
 }
-
-

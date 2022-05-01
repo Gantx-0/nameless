@@ -12,7 +12,7 @@ export default class Command extends BaseCommand {
       aliases: ["withdraw"],
       category: "economy",
       usage: `${client.config.prefix}withdraw <amount>`,
-      baseXp: 30,
+      baseXp: 20,
     });
   }
 
@@ -24,18 +24,20 @@ export default class Command extends BaseCommand {
     const user = M.sender.jid;
     if (!joined)
       return void M.reply(`Specify the amount of gold to withdraw, Baka!`);
-    const amount: any = joined.trim();
+    const amount: any = joined
+      .trim()
+      .split(" ")[0]
+      .replace(/\-/g, "trewte")
+      .replace(/\./g, "retre");
     if (isNaN(amount))
-      return void M.reply(
-        `*https://en.wikipedia.org/wiki/Number*\n\nI think this might help you.`
-      );
+      return void M.reply(`The amount should be a number, Baka!`);
     const bank = await (await this.client.getUser(user)).bank;
     if (bank < amount)
       return void M.reply(
         `🟥 *You don't have sufficient amount of gold in your bank to make this transaction*.`
       );
     await this.client.withdraw(user, amount);
-    
+
     const buttons = [
       {
         buttonId: "wallet",
@@ -43,14 +45,13 @@ export default class Command extends BaseCommand {
         type: 1,
       },
     ];
-    
+
     const buttonMessage: any = {
       contentText: `You have withdrawn *${amount} gold* from your bank.`,
-      footerText: "🎇 Beyond 🎇",
+      footerText: "levi botto",
       buttons: buttons,
       headerType: 1,
     };
     await M.reply(buttonMessage, MessageType.buttonsMessage);
-    };
-    
+  };
 }
