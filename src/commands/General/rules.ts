@@ -1,38 +1,80 @@
 /** @format */
 
 import { MessageType, Mimetype } from "@adiwajshing/baileys";
+
 import MessageHandler from "../../Handlers/MessageHandler";
+
 import BaseCommand from "../../lib/BaseCommand";
+
 import WAClient from "../../lib/WAClient";
+
 import { ISimplifiedMessage } from "../../typings";
 
 export default class Command extends BaseCommand {
-	constructor(client: WAClient, handler: MessageHandler) {
-		super(client, handler, {
-			command: "rules",
-			description: "shows the rules for beyond",
-			category: "general",
-			usage: `${client.config.prefix}rules`,
-			baseXp: 0,
-		});
-	}
 
-	run = async (M: ISimplifiedMessage): Promise<void> => {
-			const buttons = [
-				{
-				  buttonId: "rules",
-				  buttonText: { displayText: `${this.client.config.prefix}rules` },
-				  type: 1,
-				},
-			  ];
-			
-			  const buttonMessage: any = {
-				contentText: `\n\n_*HELLO THERE BEYOND BOT HERE*_\n\n 1.spamming cmds in casino=2days ban\n\n 2.don't dm mods for asking to be a mod.\n\n 3.don't ask us to sell our bots.\n\n 4.the more good you are gonna be as a beyond user the more rewards you'll get\n\n`,
-				footerText: "🎇 Beyond 🎇",
-				buttons: buttons,
-				headerType: 1,
-			  };
-			  await M.reply(buttonMessage, MessageType.buttonsMessage);
-		;
-	};
+  constructor(client: WAClient, handler: MessageHandler) {
+
+    super(client, handler, {
+
+      command: "rules",
+
+      description: "shows the rules for beyond",
+
+      category: "general",
+
+      usage: `${client.config.prefix}rules`,
+
+      baseXp: 0,
+
+    });
+
+  }
+
+  run = async (M: ISimplifiedMessage): Promise<void> => {
+
+    const buttons = [
+
+      {
+
+        buttonId: "rules",
+
+        buttonText: { displayText: `${this.client.config.prefix}rules` },
+
+        type: 1,
+
+      },
+
+    ];
+
+    const buttonMessage: any = {
+
+      contentText: `\n\n_*
+
+          🏮 *BOT RULES*
+
+🚀 _Do not call bot, if you do then you'll get automatically blocked and banned by bot._
+
+🚀 _Do not spam bot with commands, if bot is not responding then it means either bot is off or there's internet issue at owner's end._
+
+🚀 _Do not abuse/disrespect bot and its owner._
+
+🚀 _If you see any bug/error contact owners._
+
+🚀 _If you want this bot in your group then contact owner by typing .owner/mod._
+
+🚀 _Enjoy the bot and have fun as you can._\n\n`,
+
+      footerText: "©zero two 2022",
+
+      buttons: buttons,
+
+      headerType: 1,
+
+    };
+
+    await M.reply(buttonMessage, MessageType.buttonsMessage);
+
+  };
+
 }
+
