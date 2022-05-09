@@ -19,8 +19,8 @@ export default class Command extends BaseCommand {
   run = async (M: ISimplifiedMessage): Promise<void> => {
     await this.client.sendMessage(
       M.sender.jid,
-      ` _*✨WELL, IF THAT WAS THE CASE THEN  ✨*_\n _*LEVI SUPPORT GROUP*_:  https://chat.whatsapp.com/EQVwc08goNlLtSivsfmpUT   
-*LEVI CASINO🎰🃏* https://chat.whatsapp.com/Jpcy4wLVdcI2eacrrEqcSD`,
+      ` _*✨Weeb Bot Support GC ✨*_\n _*Anime Universe*_:  https://chat.whatsapp.com/KSO8BBWiFMdEFFUcI4heI9   
+*Have Fun* 🍇`,
 
       MessageType.text
     );
